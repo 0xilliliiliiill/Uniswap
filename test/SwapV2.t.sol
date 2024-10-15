@@ -70,7 +70,7 @@ contract SwapV2Test is Test {
         assertTrue(tokenContract.balanceOf(address(swapv2)) == 0);
         vm.stopPrank();
 
-        //Testing "onlyOwner" modifier
+        //Testing "onlyOwner" modifier.
         vm.startPrank(user);
 
         vm.expectRevert(abi.encodeWithSelector(Ownable.OwnableUnauthorizedAccount.selector, address(user)));

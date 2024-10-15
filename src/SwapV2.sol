@@ -33,7 +33,7 @@ contract SwapV2 is Ownable{
 
 
     function transferETH(address receiver, uint256 amount) public payable onlyOwner{
-        require(amount <= address(this).balance, "You are trying to transfer more than the contract has");
+        require(amount <= address(this).balance, "You are trying to transfer more than the contract has!");
         payable(receiver).transfer(amount);
     }
 
