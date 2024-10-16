@@ -38,17 +38,15 @@ contract SwapperTest is Test {
         // vm.assumeNoRevert();
         vm.assume(amountIn > 0.1 ether);
         vm.deal(owner, amountIn);
-        
+        uint256 ownerBalance = owner.balance;
+
         deal(weth, owner, amountIn);
 
         IERC20(weth).approve(address(swapper), type(uint256).max);
 
         swapper.swapExactInput{value: amountIn}(tokenToSwap, 1, 0, amountIn);
 
-        // IERC20 USDCIERC20 = IERC20(USDC);
-        // vm.deal(owner, amountIn);
-        // deal(weth, owner, amountIn);
-        // swapper.swapExactInput(tokenToSwap, 1, 0, amountIn);
+        assertEq(owner.balance + amountIn, ownerBalance);
     }
 
 
