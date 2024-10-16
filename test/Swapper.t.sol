@@ -53,7 +53,6 @@ contract SwapperTest is Test {
 
 
     function testFuzz_withdraw(uint96 amount) public {
-        console.log("AMOUNT:    ", amount);
         // receiving amount ether to contract
         address(swapper).call{value: amount}("");
 
