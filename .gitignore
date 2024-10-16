@@ -285,7 +285,6 @@ develop-eggs/
 downloads/
 eggs/
 .eggs/
-lib/
 lib64/
 parts/
 sdist/
@@ -373,3 +372,8 @@ testeth
 node_modules
 bin_output
 logs
+
+# Ignores not cache folder, but cache contents to be able to unignore cache/fuzz
+cache/**
+# Inclided cache/fuzz to share failing fuzz tests seeds
+!cache/fuzz
